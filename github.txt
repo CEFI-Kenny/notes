@@ -17,3 +17,8 @@ git push						update this project on server
 -- before making changes
 git pull						update this project 
 
+-- others
+git diff head~2 head			show difference between the most recent
+								version and 2 versions before
+
+git --checkout file_name		disgard all changes in file_name
