@@ -1,0 +1,19 @@
+Github
+
+-- first time
+create a new project on git
+git clone 						get a copy of a project from server
+
+--
+make some changes
+
+-- after making some changes
+git status 						check what files are changed
+git add . 						prepare all files for next commit
+git commit -m "message"			record all the changes in this project
+git push						update this project on server
+
+
+-- before making changes
+git pull						update this project 
+
