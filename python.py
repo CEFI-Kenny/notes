@@ -210,6 +210,8 @@ driver.quit()
 """
 '''
 
+
+'''
 from selenium import webdriver
 
 # find elements with selenium
@@ -231,6 +233,53 @@ browser.get('http://www.google.ca')
 
 element = browser.find_element_by_id('lst-ib')
 
-print(element.tag_name) # print input
+print(element.tag_name)                 # print input
+print(element.get_attribute("class"))   # print values of class
+print(element.is_displayed())           # print True
+print(element.location)                 # its position: {'x': 298, 'y': 324}
+# help(webdriver.remote.webelement.WebElement)
 
 browser.quit()
+'''
+
+'''
+# click a button with selenium
+from selenium import webdriver
+import time
+browser = webdriver.Chrome()
+browser.get("http://inventwithpython.com")
+link_element = browser.find_element_by_link_text("Read It Online")
+time.sleep(5)
+# click the link
+link_element.click()
+browser.quit()
+'''
+
+
+# filling out a form
+'''
+from selenium import webdriver
+import time
+
+# open Chrome and go to Google
+browser = webdriver.Chrome()
+browser.get("https://accounts.google.com/signin/v2")
+
+# enter username
+email_element = browser.find_element_by_id("identifierId")
+email_element.send_keys("test.cefi@gmail.com")
+
+# submit username
+next_element = browser.find_element_by_id("identifierNext")
+next_element.click()
+
+# wait for HTML content changes
+time.sleep(2)
+# enter password
+password_element = browser.find_element_by_name("password")
+password_element.send_keys("password here")
+
+# submit password
+password_next_element = browser.find_element_by_id("passwordNext")
+password_next_element.click()
+'''
