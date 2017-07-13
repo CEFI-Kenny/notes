@@ -143,3 +143,94 @@ p_tag.get("class") # ['cart-block-items', 'collapsed', 'uc-cart-empty']
 p_tag.get("non-existent") # returns None
 
 
+
+
+
+'''
+# control chorme with selenium
+import time
+from selenium import webdriver
+
+
+driver = webdriver.Chrome()
+
+# open browser and go to Google.ca
+driver.get('http://www.google.ca')
+
+# pause the program for 5 seconds in order to show which page is opened in chrome
+time.sleep(5) 
+
+# find the serach box on Google home page
+search_box = driver.find_element_by_id('lst-ib')
+
+# input some text to search, e.g. cefi
+search_box.send_keys('cefi')
+
+# search
+search_box.submit()
+
+# pause antoher 5 seconds in order to see search results
+time.sleep(5)
+
+# close the browser
+driver.quit()
+
+# HTML code of the search box
+"""
+<input 
+    class="gsfi" 
+    id="lst-ib"
+    maxlength="2048" 
+    name="q" 
+    autocomplete="off" 
+    title="Search" 
+    type="text" 
+    value="" 
+    aria-label="Search" 
+    aria-haspopup="false" 
+    role="combobox" 
+    aria-autocomplete="both" 
+    dir="ltr" 
+    spellcheck="false" 
+    style=" 
+        border: none;
+        padding: 0px; 
+        margin: 0px; 
+        height: auto; 
+        width: 100%; 
+        background: 
+            url(&quot;data:image/gif;
+            base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw%3D%3D&quot;
+            ) transparent; 
+        position: absolute; 
+        z-index: 6; 
+        left: 0px; 
+        outline: none;
+    ">
+"""
+'''
+
+from selenium import webdriver
+
+# find elements with selenium
+browser = webdriver.Chrome()
+
+browser.get('http://www.google.ca')
+
+# find first occurrence of element with CSS class=class-name
+# element = browser.find_element_by_class_name("class-name")
+
+# find all elements with CSS class=class-name
+# elements = browser.find_elements_by_class_name("class-name")
+
+# other browser methods: find by id, partial_link_text, name, tag_name, etc
+
+
+
+# methods for element found by browser.find() above
+
+element = browser.find_element_by_id('lst-ib')
+
+print(element.tag_name) # print input
+
+browser.quit()
