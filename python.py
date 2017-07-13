@@ -312,3 +312,11 @@ htmlElem.send_keys(Keys.HOME)    # scrolls to top
 time.sleep(1)
 browser.quit()
 '''
+
+# browser buttons
+'''
+browser.back()
+browser.forward()
+browser.refresh()
+browser.quit()
+'''
