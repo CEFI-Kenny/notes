@@ -320,3 +320,5 @@ browser.forward()
 browser.refresh()
 browser.quit()
 '''
+
+# more on selenium: http://selenium-python.readthedocs.io/
