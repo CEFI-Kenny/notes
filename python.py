@@ -65,4 +65,81 @@ for chunk in res.iter_content(1000):
 text_file.close()
 """
 
+# import beautiful soup 4 (beautify HTML files)
+import bs4
+
+res = requests.get("http://nostarch.com")
+res.raise_for_status()
+soup = bs4.BeautifulSoup(res.text, "html.parser")
+# beautify a file
+# soup = bs4.BeautifulSoup("a file object")
+
+# select all divs
+divs = soup.select("div")
+
+# select span elements within a div
+span_in_div = soup.select("div span")
+
+# select span elements immediately following a div with nothing in between
+span_follow_div = soup.select("div > span")
+
+# select element by id = author
+id_author = soup.select("#author")
+
+# select elements use CSS class = icon-bar
+css_icon_bar = soup.select(".icon-bar")
+
+# select input elements with an attribute name = any value
+input_name = soup.select("input[name]")
+
+# select input elements with an attribute type = button
+input_button = soup.select('input[type="button"]')
+
+# note: soup.select() returns bs4.element.Tag objects
+# it has methods such as find_parents(), insert(), etc.
+
+
+# bs4.element.Tag.attrs returns a dictionary of { attribute: value }
+'''
+str(input_name[0]) 
+"""
+    <input 
+            class="form-control form-text" 
+            id="edit-search-block-form--2" 
+            maxlength="128" 
+            name="search_block_form" 
+            placeholder="Search" 
+            size="15" 
+            title="Enter the terms you wish to search for." 
+            type="text" 
+            value=""
+    />
+"""
+
+input_name[0].attrs == 
+{
+    'title': 'Enter the terms you wish to search for.',
+    'placeholder': 'Search',
+    'class': ['form-control', 'form-text'], 
+    'type': 'text', 
+    'id': 'edit-search-block-form--2', 
+    'name': 'search_block_form', 
+    'value': '', 
+    'size': '15', 
+    'maxlength': '128'
+}
+'''
+
+# get plain text from a tag
+p_tag = soup.select("p")[0] 
+# <p class="cart-block-items collapsed uc-cart-empty">There are no products in your shopping cart.</p>
+
+text = p_tag.getText() # 'There are no products in your shopping cart.'
+
+# get values by attribute name
+p_tag.get("class") # ['cart-block-items', 'collapsed', 'uc-cart-empty']
+
+# get non-existent attribute
+p_tag.get("non-existent") # returns None
+
 
