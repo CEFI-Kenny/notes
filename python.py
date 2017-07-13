@@ -283,3 +283,32 @@ password_element.send_keys("password here")
 password_next_element = browser.find_element_by_id("passwordNext")
 password_next_element.click()
 '''
+
+# special keys: arrow, enter, etc
+'''
+from selenium.webdriver.common.keys import Keys
+# keys.DOWN
+# keys.UP
+# keys.LEFT
+# keys.RIGHT
+
+# keys.ENTER
+# keys.ESCAPE
+
+# keys.F1
+# keys.F5
+# keys.TAB
+
+import time
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+browser = webdriver.Chrome()
+browser.get('http://nostarch.com')
+htmlElem = browser.find_element_by_tag_name('html')
+time.sleep(1)
+htmlElem.send_keys(Keys.END)     # scrolls to bottom
+time.sleep(1)
+htmlElem.send_keys(Keys.HOME)    # scrolls to top
+time.sleep(1)
+browser.quit()
+'''
