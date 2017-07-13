@@ -1,22 +1,24 @@
-
 # teriminate a program
+'''
 import sys
 # sys.exit()
-
+'''
 
 
 # import pyperclip in order to get access to clip board
+'''
 import pyperclip
 
 # copy to clip board
 # pyperclip.copy("some text here")
 # paste from clip board
 content_in_clip_board = pyperclip.paste()
+'''
 
 
-
+# webbrowser module
+'''
 import os, webbrowser
-
 # get command line arguments
 # e.g. python3 python.py arg1 arg2
 #      sys.argv = ["python.py", "arg1", "arg2"]
@@ -31,10 +33,11 @@ else:
 
 # e.g. python3 python.py 3221 North Service Road, Burlington, ON.
 # webbrowser.open("https://www.google.com/maps/place/" + address)
-
+'''
 
 
 # use requests module to download content
+'''
 import requests
 
 # download a text file and store in res
@@ -64,8 +67,11 @@ for chunk in res.iter_content(1000):
     print(num_bytes_wrote)
 text_file.close()
 """
+'''
+
 
 # import beautiful soup 4 (beautify HTML files)
+'''
 import bs4
 
 res = requests.get("http://nostarch.com")
@@ -97,6 +103,7 @@ input_button = soup.select('input[type="button"]')
 
 # note: soup.select() returns bs4.element.Tag objects
 # it has methods such as find_parents(), insert(), etc.
+'''
 
 
 # bs4.element.Tag.attrs returns a dictionary of { attribute: value }
@@ -130,7 +137,9 @@ input_name[0].attrs ==
 }
 '''
 
+
 # get plain text from a tag
+'''
 p_tag = soup.select("p")[0] 
 # <p class="cart-block-items collapsed uc-cart-empty">There are no products in your shopping cart.</p>
 
@@ -141,13 +150,11 @@ p_tag.get("class") # ['cart-block-items', 'collapsed', 'uc-cart-empty']
 
 # get non-existent attribute
 p_tag.get("non-existent") # returns None
-
-
-
-
-
 '''
-# control chorme with selenium
+
+
+# control Chorme with selenium
+'''
 import time
 from selenium import webdriver
 
@@ -211,6 +218,7 @@ driver.quit()
 '''
 
 
+# find elements by selenium
 '''
 from selenium import webdriver
 
@@ -242,8 +250,10 @@ print(element.location)                 # its position: {'x': 298, 'y': 324}
 browser.quit()
 '''
 
-'''
+
 # click a button with selenium
+'''
+
 from selenium import webdriver
 import time
 browser = webdriver.Chrome()
@@ -284,6 +294,7 @@ password_next_element = browser.find_element_by_id("passwordNext")
 password_next_element.click()
 '''
 
+
 # special keys: arrow, enter, etc
 '''
 from selenium.webdriver.common.keys import Keys
@@ -313,6 +324,7 @@ time.sleep(1)
 browser.quit()
 '''
 
+
 # browser buttons
 '''
 browser.back()
@@ -320,5 +332,4 @@ browser.forward()
 browser.refresh()
 browser.quit()
 '''
-
 # more on selenium: http://selenium-python.readthedocs.io/
