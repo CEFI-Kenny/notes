@@ -342,3 +342,58 @@ file_handle = open('dummy.csv')
 csv_reader = csv.reader(file_handle)
 file_content = list(csv_reader)
 '''
+
+
+# datetime and time module
+'''
+import datetime, time
+
+# returns datetime(year, month, day, hour, minute, second, microsecond
+current = datetime.datetime.now()
+
+# 1000 seconds from unix epoch time easter time: December 31, 1969, 19:00
+thousand_seconds = datetime.datetime.fromtimestamp(1000)
+
+# get current time using time module
+current_from_time = datetime.datetime.fromtimestamp(time.time())
+
+# get time duration
+duration = datetime.timedelta(days=11, hours=10, minutes=9, seconds=0)
+print(duration.days)            # print 11
+print(duration.total_seconds()) # print 986948, total seconds in this duration
+print(str(duration))            # print '11 days, 10:09:00'
+
+# get timestamp for 2 days later
+two_days = datetime.timedelta(days=2)
+two_days_later = current + two_days
+
+# run program at a specific time
+desire_time = datetime.datetime(2017, 7, 14, 11, 47, 0)
+while datetime.datetime.now() < desire_time:
+    # check above condition once every second, reduce busy loop
+    time.sleep(1)
+print(str(desire_time))
+
+# format string representation of datetime object
+yyyy_mm_dd = current.strftime("%Y-%m-%d")
+
+# parse a string to datetime object
+parsed = datetime.datetime.strptime("July 1, 2017", "%B %d, %Y")
+
+# wildcards of datetime object
+# %Y - year                  e.g. 2017
+# %y - year without century  e.g. 17
+# %m - month as number       e.g. 01
+# %B - month name            e.g. January
+# %b - abbreviated month     e.g. Jan
+# %d - day of month          e.g. 01 - 31
+# %j - day of year           e.g. 01 - 366
+# %w - day of week           e.g. 0 - Sunday, 1 - Monday
+# %A - full name above       e.g. Monday
+# %a - abbreviated name      e.g. Mon
+# %H - hour(24)              e.g. 00 - 23
+# %I - hour(120              e.g. 01 - 12
+# %M - minute                e.g. 00 - 59
+# %S - second                e.g. 00 - 59
+# %p - am or pm
+'''
