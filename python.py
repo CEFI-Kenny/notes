@@ -333,3 +333,12 @@ browser.refresh()
 browser.quit()
 '''
 # more on selenium: http://selenium-python.readthedocs.io/
+
+
+# process CSV files
+'''
+import csv
+file_handle = open('dummy.csv')
+csv_reader = csv.reader(file_handle)
+file_content = list(csv_reader)
+'''
