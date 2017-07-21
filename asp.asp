@@ -136,15 +136,16 @@ Hello There
 %>
 
 
+
 <!-- form with method=get -->
-<!-- action specifies the destination, i.e. where we submit this form to -->
 <form action="asp.asp" method="get">
 	Your name: 
 	<input type="text" name="name">
 	<input type="submit" value="submit">
 </form>
-
 <!-- process submitted form -->
+<!-- action="asp.asp" specifies the destination, 
+	i.e. where we submit this form to -->
 <%
 	name=Request.QueryString("name")
 	If name <> "" Then
