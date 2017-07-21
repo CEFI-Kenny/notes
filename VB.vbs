@@ -404,3 +404,28 @@ End Class
 Namespace myNamespace
 	' some code
 End Namespace
+
+' error handler
+Sub ResumeStatementDemo()
+	' Enable error-handling routine.
+	On Error GoTo ErrorHandler   
+	Dim x As Integer = 32
+	Dim y As Integer = 0
+	Dim z As Integer
+	z = x / y   ' Creates a divide by zero error
+Exit Sub   ' Exit Sub to avoid error handler.
+
+' Error-handling routine.
+ErrorHandler:
+	' Evaluate error number.
+	' table of error flags
+	' https://msdn.microsoft.com/en-us/library/aa264975(v=VS.60).aspx
+	Select Case Err.Number   
+		Case 6   ' 6 == Divide by zero error.
+			y = 1 ' Sets the value of y to 1 and tries the calculation again.
+		Case Else
+			' Handle other situations here....
+	End Select
+	' Resume execution at same line
+	Resume   
+End Sub
