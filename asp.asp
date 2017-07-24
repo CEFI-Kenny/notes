@@ -162,6 +162,11 @@ Hello There
 </form>
 
 
+<!-- year function -->
+<%
+	response.write year(date) 			' prints year of date, i.e. 2017
+	response.write year("2016-02-02")	' prints 2016
+%>
 
 
 </body>
