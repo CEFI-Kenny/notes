@@ -7,3 +7,6 @@ ADD column_name datatype;
 ALTER TABLE table_name
 DROP COLUMN column_name;
 
+
+-- if check_expression is Null, then replace it with replacement_value
+ISNULL ( check_expression , replacement_value )  
