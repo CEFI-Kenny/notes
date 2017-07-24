@@ -429,3 +429,11 @@ ErrorHandler:
 	' Resume execution at same line
 	Resume   
 End Sub
+
+' if option explicit or option explicit on
+' then all variable must have dim or redim
+Option Explicit
+Option Explicit On
+
+' option explicit off will allow defining variable without dim
+Option Explicit Off
