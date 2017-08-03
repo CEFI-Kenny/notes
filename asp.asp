@@ -169,6 +169,15 @@ Hello There
 %>
 
 
+<!-- execute a stored porcedure -->
+<%
+	Dim objConnection, objRS, strSP
+	call DBOpen(objConnection, objRS)
+	strSP = "Excc str_nameOfStoredProcesure argument1 argumetn2"
+	objConnection.Execute
+%>
+
+
 </body>
 </html>
 
