@@ -1,0 +1,2 @@
+Command + Shift + 3		Full screen saved on desktop
+Command + Shift + 4 	A portion of the screen on desktop
